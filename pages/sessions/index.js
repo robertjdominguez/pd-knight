@@ -10,10 +10,10 @@ const index = () => {
             PD for the <span>Twenty-First Century</span>
           </h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-            dolorum voluptatem vitae! Ipsa fugit a quaerat quisquam?
-            Repudiandae, at ducimus culpa tempore a consequatur repellat unde
-            eum facilis blanditiis nihil!
+            Our professional development sessions aim to support and amplify the
+            great things already happening in Altamont classrooms. We're all
+            preparing our students for the 21st-Century; our job is to help you
+            prepare them.
           </p>
           <HeroCTA href="/">Browse Sessions</HeroCTA>
         </div>

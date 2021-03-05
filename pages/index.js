@@ -60,8 +60,8 @@ export default function Home() {
                 />
                 <h2>Register</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                  enim id consectetur nullam dolor, dignissim morbi.{" "}
+                  Browse our list of upcoming sessions and register with just a
+                  few clicks.{" "}
                 </p>
               </div>
               <div>
@@ -73,8 +73,8 @@ export default function Home() {
                 />
                 <h2>Organize</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                  enim id consectetur nullam dolor, dignissim morbi.{" "}
+                  Once registered, you'll get an automatic calendar invite to
+                  keep you sane.{" "}
                 </p>
               </div>
               <div>
@@ -86,8 +86,8 @@ export default function Home() {
                 />
                 <h2>Track</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                  enim id consectetur nullam dolor, dignissim morbi.{" "}
+                  A simple-to-use dashboard keeps track of all your hours and
+                  certificates.{" "}
                 </p>
               </div>
             </AutoDiv>
@@ -106,9 +106,9 @@ export default function Home() {
                 <div>
                   <h4>In-Demand</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repellat laboriosam consequuntur assumenda
-                    perspiciatis nihil cumque, autem animi fugit quidem.
+                    All sessions are built around <strong>you</strong>! The
+                    focus of these events is on keeping you abreast of the most
+                    up-to-date technology, pedagogy, and ideas in education.
                   </p>
                 </div>
               </TripVert>
@@ -117,9 +117,9 @@ export default function Home() {
                 <div>
                   <h4>Technology-Integrated</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repellat laboriosam consequuntur assumenda
-                    perspiciatis nihil cumque, autem animi fugit quidem.
+                    A key component of these sessions is the implicit role that
+                    technology plays in reaching our students. It doesn't
+                    replace what we do, it should make it easier.
                   </p>
                 </div>
               </TripVert>
@@ -128,9 +128,10 @@ export default function Home() {
                 <div>
                   <h4>Teacher-Focused</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repellat laboriosam consequuntur assumenda
-                    perspiciatis nihil cumque, autem animi fugit quidem.
+                    No meetings that could have been emails; no forced
+                    standards; no unobtainable goals. Our sessions are designed
+                    to give you something to walk away with and use each and
+                    every time.
                   </p>
                 </div>
               </TripVert>

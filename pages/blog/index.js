@@ -10,10 +10,10 @@ const index = () => {
             Writing to <span>Support Teachers</span>
           </h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-            dolorum voluptatem vitae! Ipsa fugit a quaerat quisquam?
-            Repudiandae, at ducimus culpa tempore a consequatur repellat unde
-            eum facilis blanditiis nihil!
+            We believe education should be a transparent endeavor. In that vein,
+            you can check out our blog to see the curtain pulled back and watch
+            some of the best teachers in the area learn in public. Want to get
+            updated on a regular basis? Sign up for our newsletter below!
           </p>
           <HeroCTA href="/">Browse Posts</HeroCTA>
         </div>
