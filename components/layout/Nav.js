@@ -12,6 +12,7 @@ export default function Nav() {
         width="300px"
         height="auto"
         alt="The Altamont School Logo"
+        style={{ gridArea: `logo` }}
       />
       <NavItems>
         <Link href="/">Home</Link>

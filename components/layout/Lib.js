@@ -159,6 +159,14 @@ export const NavItems = styled.nav`
       border-bottom: solid 2px var(--gold);
     }
   }
+
+  @media (max-width: 500px) {
+    grid-template-areas:
+      "logo"
+      "nav";
+    grid-template-columns: 1fr;
+    display: none;
+  }
 `;
 
 export const NavCTA = styled.a`
