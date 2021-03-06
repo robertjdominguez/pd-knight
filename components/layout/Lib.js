@@ -209,3 +209,30 @@ export const ContentHero = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const Gallery = styled.div`
+  display: grid;
+  grid-gap: 40px;
+  width: 100%;
+  height: 20vh;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center center;
+  padding-top: 4rem;
+  margin-bottom: 20vh;
+`;
+
+export const SeshCard = styled.div`
+  border-radius: 13px;
+  background: url("${(props) => props.bg}");
+  background-size: cover;
+  box-shadow: var(--norm-shadow);
+  width: 100%;
+  height: 200px;
+  transition: var(--norm);
+
+  :hover {
+    transform: translateY(-10px) rotateZ(-2.5deg) scale(1.03);
+    box-shadow: var(--lg-shadow);
+    cursor: pointer;
+  }
+`;

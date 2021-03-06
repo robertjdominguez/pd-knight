@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-
 import { signIn, signOut, useSession } from "next-auth/client";
 import {
   PageWrapper,
@@ -13,12 +12,10 @@ import {
   SecBtn,
   TripVert,
 } from "../components/layout/Lib";
+import CardGallery from "../components/sessions/CardGallery";
+import graphcms from "../components/utilities/graphCMS";
 
-export default function Home() {
-  const [session, loading] = useSession();
-
-  session && console.log(session);
-
+export default function Home({ sessions }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -138,8 +135,31 @@ export default function Home() {
             </div>
           </Paired>
           {/* Gallery */}
+          <CardGallery sessions={sessions} />
         </PageWrapper>
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const sessions = await graphcms.request(
+    ` query CardImageQuery {
+        pdSessions {
+          id
+          title
+          image {
+            fileName
+            url
+          }
+        }
+      }    
+      `
+  );
+
+  return {
+    props: {
+      sessions,
+    },
+  };
 }
