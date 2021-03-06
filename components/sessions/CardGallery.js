@@ -7,11 +7,9 @@ export default function CardGallery({ sessions }) {
       <div>
         <h2>Upcoming Sessions</h2>
         <p className={"subtle"}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet
-          nisi, harum facere culpa maiores exercitationem perferendis eius
-          aliquid eligendi vitae cum? Non asperiores cupiditate quod! Iste hic
-          voluptatibus recusandae repellendus magni, iusto ab molestias nemo
-          possimus ratione enim sunt modi?
+          Below you'll find all our upcoming sessions. These events haven't
+          happened yet; for a complete catalogue of all our workshops, including
+          ones in the past, click here.
         </p>
       </div>
       <Gallery>

@@ -116,7 +116,7 @@ export default function Home({ sessions }) {
                   <p>
                     A key component of these sessions is the implicit role that
                     technology plays in reaching our students. It doesn't
-                    replace what we do, it should make it easier.
+                    replace what we do, it makes it easier.
                   </p>
                 </div>
               </TripVert>
@@ -148,6 +148,7 @@ export async function getStaticProps() {
         pdSessions {
           id
           title
+          slug
           image {
             fileName
             url

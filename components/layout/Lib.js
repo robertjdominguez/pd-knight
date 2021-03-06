@@ -214,8 +214,7 @@ export const Gallery = styled.div`
   display: grid;
   grid-gap: 40px;
   width: 100%;
-  height: 20vh;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   place-items: center center;
   padding-top: 4rem;
   margin-bottom: 20vh;
@@ -227,7 +226,7 @@ export const SeshCard = styled.div`
   background-size: cover;
   box-shadow: var(--norm-shadow);
   width: 100%;
-  height: 200px;
+  min-height: 225px;
   transition: var(--norm);
 
   :hover {
