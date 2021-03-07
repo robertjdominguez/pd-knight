@@ -25,12 +25,30 @@ const getCredentials = async () => {
 export default async (req, res) =>
   NextAuth(req, res, {
     providers: [
-      Providers.AzureADB2C({
-        clientId: process.env.AZURE_CLIENT_ID,
-        clientSecret: process.env.AZURE_CLIENT_SECRET,
-        scope: "offline_access User.Read",
-        tenantId: process.env.AZURE_TENANT_ID,
-      }),
+      {
+        id: "msal",
+        name: "Microsoft Login",
+        type: "oauth",
+        version: "2.0",
+        scope: "https://graph.microsoft.com/user.read",
+        params: { grant_type: "authorization_code" },
+        accessTokenUrl: process.env.MSAL_TOKEN_ACCESS,
+        requestTokenUrl: process.env.MSAL_TOKEN_REQUEST,
+        authorizationUrl: process.env.MSAL_TOKEN_AUTHORIZE,
+        profileUrl: "https://graph.microsoft.com/v1.0/me/",
+        profile: (profile) => {
+          console.log(profile);
+          return {
+            id: profile.id,
+            name: profile.displayName,
+            last_name: profile.surname,
+            first_name: profile.givenName,
+            email: profile.mail,
+          };
+        },
+        clientId: process.env.APPLICATION_ID,
+        clientSecret: process.env.AUTH_SECRET,
+      },
     ],
     database: await getCredentials(),
   });
