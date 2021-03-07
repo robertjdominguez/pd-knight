@@ -5,8 +5,6 @@ import { NavBar, NavCTA, NavItems } from "./Lib";
 export default function Nav() {
   const [session, loading] = useSession();
 
-  session && console.log(session);
-
   return (
     <NavBar>
       <img

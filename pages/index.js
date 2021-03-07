@@ -40,7 +40,7 @@ export default function Home({ sessions }) {
             </div>
             <img
               src="learning-cert.svg"
-              // width="100%"
+              width="100%"
               // height="auto"
               alt="Learning Certification"
             />

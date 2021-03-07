@@ -4,7 +4,7 @@ import {
   PageWrapper,
   SessionHero,
   SessionDeets,
-  SessionList,
+  SessionItem,
   NavCTA,
 } from "../../components/layout/Lib";
 
@@ -17,23 +17,25 @@ const Session = ({ pdSession }) => {
           <h2>{pdSession.title}</h2>
           <p>{pdSession.description}</p>
           <SessionDeets>
-            <SessionList>
-              <div>
-                <img src="/calendar2.svg" alt="Calendar icon" />
-                <p style={{ fontSize: `18px` }}>
-                  <Moment format="DD MMMM HH:MM a" date={pdSession.date} />
-                </p>
-              </div>
-              <div>
-                <img src="/user2.svg" alt="User icon" />
-                <p>{pdSession.hours}</p>
-              </div>
-              <div>
-                <img src="/user2.svg" alt="User icon" />
-                <p>{pdSession.leader.name}</p>
-              </div>
-            </SessionList>
-            <NavCTA style={{ fontSize: `12px` }}>REGISTER</NavCTA>
+            <ul>
+              <SessionItem icon={"/calendar2.svg"} style={{ fontSize: `18px` }}>
+                <Moment format="DD MMMM HH:MM a" date={pdSession.date} />
+              </SessionItem>
+              <SessionItem icon={"/watch.svg"} style={{ fontSize: `14px` }}>
+                {pdSession.hours} hours
+              </SessionItem>
+              <SessionItem icon={"/user2.svg"} style={{ fontSize: `14px` }}>
+                {pdSession.leader.name.split(" ")[0]}
+              </SessionItem>
+            </ul>
+            <NavCTA
+              style={{
+                fontSize: `12px`,
+                marginTop: `20px`,
+                placeSelf: `start start`,
+              }}>
+              REGISTER
+            </NavCTA>
           </SessionDeets>
         </div>
       </SessionHero>

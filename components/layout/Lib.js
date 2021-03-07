@@ -28,8 +28,13 @@ export const Hero = styled.div`
   margin-bottom: 10vh;
   text-align: left;
   /* align-content: space-between; */
+
   h2 {
     margin-top: 0;
+  }
+
+  img {
+    max-width: 100%;
   }
 `;
 
@@ -185,6 +190,22 @@ export const NavCTA = styled.a`
   }
 `;
 
+export const NavForm = styled.button`
+  padding: 10px 20px !important;
+  border-radius: 13px;
+  border: solid 1px var(--gold);
+  text-decoration: none;
+  transition: var(--norm);
+  background: var(--gold);
+  box-shadow: var(--norm-shadow);
+
+  :hover {
+    background: var(--gold-2);
+    border: solid 1px var(--gold-2);
+    cursor: pointer;
+  }
+`;
+
 // SESSIONS AND BLOG
 export const ContentHero = styled.div`
   display: grid;
@@ -251,6 +272,7 @@ export const SessionHero = styled.div`
   display: grid;
   min-height: 100vh;
   width: 100%;
+  margin-top: 5vh;
   grid-template-columns: 1fr 1fr;
   background: url("${(props) => props.bg}");
   background-size: cover;
@@ -262,28 +284,48 @@ export const SessionHero = styled.div`
     font-size: 1.5rem;
     color: white;
   }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const SessionDeets = styled.div`
-  display: block;
+  display: grid;
   border-radius: 13px;
   background: var(--off-white);
   box-shadow: var(--norm-shadow);
-  width: 100%;
+  width: 75%;
   height: auto;
   margin-top: 5vh;
   padding: 40px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 `;
 
-export const SessionList = styled.div`
-  display: block;
-  div {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    place-items: center start;
-    p {
-      color: var(--black-3);
-    }
-    padding-bottom: 5vh;
+export const SessionItem = styled.li`
+  color: var(--black-3);
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 30px;
+
+  :before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-image: url("${(props) => props.icon}");
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
