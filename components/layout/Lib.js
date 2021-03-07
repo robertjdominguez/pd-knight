@@ -181,6 +181,7 @@ export const NavCTA = styled.a`
   :hover {
     background: var(--gold-2);
     border: solid 1px var(--gold-2);
+    cursor: pointer;
   }
 `;
 
@@ -222,7 +223,7 @@ export const Gallery = styled.div`
   display: grid;
   grid-gap: 40px;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   place-items: center center;
   padding-top: 4rem;
   margin-bottom: 20vh;
@@ -232,8 +233,10 @@ export const SeshCard = styled.div`
   border-radius: 13px;
   background: url("${(props) => props.bg}");
   background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: var(--norm-shadow);
-  width: 100%;
+  width: 400px;
+  /* min-height: 225px; */
   min-height: 225px;
   transition: var(--norm);
 
@@ -241,5 +244,46 @@ export const SeshCard = styled.div`
     transform: translateY(-10px) rotateZ(-2.5deg) scale(1.03);
     box-shadow: var(--lg-shadow);
     cursor: pointer;
+  }
+`;
+
+export const SessionHero = styled.div`
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  background: url("${(props) => props.bg}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5vh 5vw;
+  color: white;
+
+  p {
+    font-size: 1.5rem;
+    color: white;
+  }
+`;
+
+export const SessionDeets = styled.div`
+  display: block;
+  border-radius: 13px;
+  background: var(--off-white);
+  box-shadow: var(--norm-shadow);
+  width: 100%;
+  height: auto;
+  margin-top: 5vh;
+  padding: 40px;
+`;
+
+export const SessionList = styled.div`
+  display: block;
+  div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    place-items: center start;
+    p {
+      color: var(--black-3);
+    }
+    padding-bottom: 5vh;
   }
 `;

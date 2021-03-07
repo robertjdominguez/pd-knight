@@ -2,6 +2,8 @@
     /* Colors */
     --black: hsl(236, 69%, 14%);
     --black-3: hsl(212, 16%, 54%);
+    --grey: hsl(201, 6%, 53%);
+    --off-white: hsla(0, 0%, 100%, 0.9);
     --gold: hsl(42, 84%, 49%);
     --gold-2: hsl(41, 84%, 68%);
 
@@ -22,7 +24,7 @@ html {
     font-size: 62.5%;
     color: var(--black);
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     scroll-padding: 70px;
   }
   

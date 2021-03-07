@@ -5,6 +5,8 @@ import { NavBar, NavCTA, NavItems } from "./Lib";
 export default function Nav() {
   const [session, loading] = useSession();
 
+  session && console.log(session);
+
   return (
     <NavBar>
       <img
@@ -21,7 +23,7 @@ export default function Nav() {
         <></>
         {session && <Link href="/protected/dashboard">My Dashboard</Link>}
         {!session ? (
-          <NavCTA href="/api/auth/signin/azure-ad-b2c">Sign in</NavCTA>
+          <NavCTA onClick={signin}>Sign in</NavCTA>
         ) : (
           <NavCTA onClick={signout}>Sign out</NavCTA>
         )}
