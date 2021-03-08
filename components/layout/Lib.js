@@ -114,8 +114,8 @@ export const SecBtn = styled.a`
   box-shadow: var(--norm-shadow);
 
   :hover {
-    background: var(--black-3);
-    border: solid 1px var(--black-3);
+    background: var(--eggshell);
+    border: solid 1px var(--black);
   }
 `;
 

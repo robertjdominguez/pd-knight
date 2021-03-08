@@ -19,7 +19,7 @@ export default function Nav() {
         <Link href="/sessions">Sessions</Link>
         <Link href="/blog">Blog</Link>
         <></>
-        {session && <Link href="/protected/dashboard">My Dashboard</Link>}
+        {session && <Link href="/user/dashboard">My Dashboard</Link>}
         {!session ? (
           <NavCTA onClick={signin}>Sign in</NavCTA>
         ) : (
