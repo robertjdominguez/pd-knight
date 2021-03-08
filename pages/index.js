@@ -27,7 +27,11 @@ export default function Home({ sessions }) {
         <PageWrapper>
           {/* Hero */}
           <Hero min={`400px`}>
-            <div>
+            <div
+              style={{
+                marginLeft: `auto`,
+                marginRight: `auto`,
+              }}>
               <h1>
                 One-Stop-Shop for <span>Professional Development</span>
               </h1>

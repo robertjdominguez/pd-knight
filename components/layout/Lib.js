@@ -6,6 +6,7 @@ export const PageWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
+  padding: 10px;
 `;
 
 export const DynamicWrapper = styled.div`
@@ -29,12 +30,18 @@ export const Hero = styled.div`
   text-align: left;
   /* align-content: space-between; */
 
-  h2 {
+  h1 {
     margin-top: 0;
   }
 
   img {
     max-width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -117,6 +124,7 @@ export const TripVert = styled.div`
   grid-template-columns: 1fr 4fr;
   grid-gap: 40px;
   place-items: center center;
+  width: 100%;
 
   h4 {
     margin-top: none;
