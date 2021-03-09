@@ -47,7 +47,7 @@ export default (req, res) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${response.data.access_token}`,
             "Content-type": "application/json",
           },
         }
