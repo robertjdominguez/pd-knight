@@ -21,9 +21,9 @@ export default (req, res) => {
     headers: {
       "content-type": "application/x-www-form-urlencoded",
     },
-  }).then((response) => {
-    axios
-      .post(
+  })
+    .then((response) => {
+      axios.post(
         calUrl,
         {
           subject: req.body.data.title,
@@ -52,9 +52,11 @@ export default (req, res) => {
             "Content-type": "application/json",
           },
         }
-      )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  });
-  res.status(200).json({ message: req.body });
+      );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({ message: err });
+    });
+  res.status(200).json({ message: `Great success` });
 };
