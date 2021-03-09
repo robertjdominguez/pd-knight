@@ -16,21 +16,22 @@ export default function Dashboard({ session }) {
           Hey there, {session.user.name.split(" ")[0]}!
         </h3>
         <p className="subtle">
-          This is your dashboard. It isn't sexy, but it's functional. Below,
-          you'll see all the sessions you've signed up for. If they've already
-          happened - and you actually showed up - and JP/Rob have gotten it
-          together and done their bureaucratic work, then you'll see a handy
-          button to print your certificate on your next wild Saturday evening.
+          This is your dashboard. It isn't sexy, but it's functional (kind of
+          like Rob in high school). Below, you'll see all the sessions you've
+          signed up for. If they've already happened - and you actually showed
+          up - and JP/Rob have gotten it together and done their bureaucratic
+          work, then you'll see a handy button to print your certificate on your
+          next wild Saturday evening.
         </p>
         {/* Upcoming Sessions */}
         <h4 style={{ marginBottom: 0 }}>Upcoming Sessions</h4>
-        <p className="subtle">Oh boy! Can't wait for these...</p>
+        {/* <p className="subtle">Oh boy! Can't wait for these...</p> */}
         {/* Past Sessions */}
         <h4 style={{ marginBottom: 0 }}>Past Sessions</h4>
-        <p className="subtle">
+        {/* <p className="subtle">
           Assuming we haven't been too lazy, you can come back here to view
           recordings of these sessions or print your certificates.
-        </p>
+        </p> */}
       </PageWrapper>
     </>
   );

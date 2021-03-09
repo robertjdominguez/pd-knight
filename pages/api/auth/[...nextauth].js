@@ -30,7 +30,8 @@ export default async (req, res) =>
         name: "Microsoft Login",
         type: "oauth",
         version: "2.0",
-        scope: "https://graph.microsoft.com/user.read",
+        scope:
+          "https://graph.microsoft.com/user.read https://graph.microsoft.com/calendars.readwrite https://graph.microsoft.com/mail.send https://graph.microsoft.com/mail.readwrite",
         params: { grant_type: "authorization_code" },
         accessTokenUrl: process.env.MSAL_TOKEN_ACCESS,
         requestTokenUrl: process.env.MSAL_TOKEN_REQUEST,
