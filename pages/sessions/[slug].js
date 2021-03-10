@@ -1,5 +1,6 @@
-import graphcms from "../../components/utilities/graphCMS";
+import Link from "next/link";
 import Moment from "react-moment";
+import graphcms from "../../components/utilities/graphCMS";
 import {
   PageWrapper,
   SessionHero,
@@ -28,14 +29,17 @@ const Session = ({ pdSession }) => {
                 {pdSession.leader.name.split(" ")[0]}
               </SessionItem>
             </ul>
-            <NavCTA
-              style={{
-                fontSize: `12px`,
-                marginTop: `20px`,
-                placeSelf: `start start`,
-              }}>
-              REGISTER
-            </NavCTA>
+            <Link href={`/confirmation/${pdSession.slug}`} passHref>
+              <NavCTA
+                style={{
+                  color: `var(--black)`,
+                  fontSize: `12px`,
+                  marginTop: `20px`,
+                  placeSelf: `start start`,
+                }}>
+                REGISTER
+              </NavCTA>
+            </Link>
           </SessionDeets>
         </div>
       </SessionHero>

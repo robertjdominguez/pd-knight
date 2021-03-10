@@ -1,10 +1,8 @@
 import axios from "axios";
-import qs from "querystring";
 import graphcms from "../../../components/utilities/graphCMS";
 import { refreshToken } from "../../../utilities/refreshToken";
 
 // MSFT vars
-const url = process.env.MSAL_TOKEN_ACCESS;
 const calUrl = `https://graph.microsoft.com/v1.0/me/events`;
 
 // GraphCMS mutation IFF needed
