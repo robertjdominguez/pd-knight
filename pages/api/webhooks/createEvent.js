@@ -56,7 +56,7 @@ export default async (req, res) => {
     );
     // Add new id to pdSession in GraphCMS => data.id
     const cmsUpdate = await graphcms.request(mutation, {
-      id: result.data.id,
+      teamsLink: result.data.id,
     });
 
     console.log(cmsUpdate);
