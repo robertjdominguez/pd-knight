@@ -25,13 +25,27 @@ export default function Dashboard({ session }) {
         </p>
         {/* Upcoming Sessions */}
         <h4 style={{ marginBottom: 0 }}>Upcoming Sessions</h4>
-        {/* <p className="subtle">Oh boy! Can't wait for these...</p> */}
+        <p className="subtle">
+          Psssst.....click on the Fresh Prince to sign up for something.
+        </p>
+        <img
+          src="https://media.giphy.com/media/OSuaE6AknuRc7syZXp/giphy.gif"
+          alt="The Fresh Prince in an empty Bel Air mansion"
+          style={{
+            width: `100%;`,
+            height: `auto`,
+            placeSelf: `center center`,
+            borderRadius: `13px`,
+            boxShadow: `var(--norm-shadow)`,
+          }}
+        />
         {/* Past Sessions */}
         <h4 style={{ marginBottom: 0 }}>Past Sessions</h4>
-        {/* <p className="subtle">
-          Assuming we haven't been too lazy, you can come back here to view
-          recordings of these sessions or print your certificates.
-        </p> */}
+        <p className="subtle">
+          Once you register for sessions and they've already happened, they'll
+          move down here. Certs and recordings will be available within a few
+          days of the session.
+        </p>
       </PageWrapper>
     </>
   );

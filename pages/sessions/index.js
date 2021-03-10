@@ -1,6 +1,8 @@
+import CardGallery from "../../components/sessions/CardGallery";
+import graphcms from "../../components/utilities/graphCMS";
 import { PageWrapper, ContentHero, HeroCTA } from "../../components/layout/Lib";
 
-const index = () => {
+const index = ({ sessions }) => {
   return (
     <>
       <ContentHero bg={"/sessionbg.png"}>
@@ -18,9 +20,35 @@ const index = () => {
           <HeroCTA href="/">Browse Sessions</HeroCTA>
         </div>
       </ContentHero>
-      <PageWrapper></PageWrapper>
+      <PageWrapper>
+        {/* Gallery */}
+        <CardGallery sessions={sessions} />
+      </PageWrapper>
     </>
   );
 };
 
 export default index;
+
+export async function getStaticProps() {
+  const sessions = await graphcms.request(
+    ` query CardImageQuery {
+        pdSessions {
+          id
+          title
+          slug
+          image {
+            fileName
+            url
+          }
+        }
+      }    
+      `
+  );
+
+  return {
+    props: {
+      sessions,
+    },
+  };
+}
