@@ -13,7 +13,6 @@ import {
 
 const Confirmation = ({ pdSession }) => {
   const [session, loading] = useSession();
-  session && console.log(session && session.user);
 
   //   State for the registration progress, init with false
   const [isRegistering, setIsRegistering] = useState(`pre`);
@@ -29,6 +28,8 @@ const Confirmation = ({ pdSession }) => {
         email: session && session.user.email,
         name: session && session.user.name,
       },
+      slug: pdSession.slug,
+      userId: session && session.user.email,
     });
     // Bring up the confirmation message
     registration.status == 200

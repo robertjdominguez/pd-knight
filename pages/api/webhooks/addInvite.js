@@ -1,5 +1,9 @@
 import axios from "axios";
 import { refreshToken } from "../../../utilities/refreshToken";
+import {
+  fetcher,
+  registrationMutation,
+} from "../../../components/utilities/hasura";
 
 export default async (req, res) => {
   console.log(req);
@@ -41,6 +45,18 @@ export default async (req, res) => {
       },
     }
   );
+
+  // Add the registration in Hasura
+  const mutation = {
+    query: registrationMutation,
+    variables: {
+      slug: req.body.slug,
+      attendee: req.body.userId,
+    },
+  };
+  const dbReg = await fetcher(mutation.query, mutation.variables);
+
+  console.log(dbReg);
 
   result.status == 200
     ? res.status(200).json({ message: `Great success! 🚀` })

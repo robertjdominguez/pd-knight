@@ -1,11 +1,18 @@
 import { getSession } from "next-auth/client";
 import { PageWrapper } from "../../components/layout/Lib";
+import {
+  fetcher,
+  myRegistrationQuery,
+  registrationMutation,
+} from "../../components/utilities/hasura";
 import Image from "next/image";
 import Head from "next/head";
 
-export default function Dashboard({ session }) {
-  session && console.log(session);
-
+export default function Dashboard({
+  session,
+  pastRegistrations,
+  upcomingRegistrations,
+}) {
   return (
     <>
       <Head>
@@ -26,19 +33,17 @@ export default function Dashboard({ session }) {
         {/* Upcoming Sessions */}
         <h4 style={{ marginBottom: 0 }}>Upcoming Sessions</h4>
         <p className="subtle">
-          Psssst.....click on the Fresh Prince to sign up for something.
+          Any upcoming sessions for which you're registered will appear here.
         </p>
-        <img
-          src="https://media.giphy.com/media/OSuaE6AknuRc7syZXp/giphy.gif"
-          alt="The Fresh Prince in an empty Bel Air mansion"
-          style={{
-            width: `100%;`,
-            height: `auto`,
-            placeSelf: `center center`,
-            borderRadius: `13px`,
-            boxShadow: `var(--norm-shadow)`,
-          }}
-        />
+        <ul>
+          {upcomingRegistrations.length > 0
+            ? upcomingRegistrations.map((reg) => (
+                <li key={reg.pdconnection[0].title}>
+                  {reg.pdconnection[0].title}
+                </li>
+              ))
+            : null}
+        </ul>
         {/* Past Sessions */}
         <h4 style={{ marginBottom: 0 }}>Past Sessions</h4>
         <p className="subtle">
@@ -46,6 +51,15 @@ export default function Dashboard({ session }) {
           move down here. Certs and recordings will be available within a few
           days of the session.
         </p>
+        <ul>
+          {pastRegistrations.length > 0
+            ? pastRegistrations.map((reg) => (
+                <li key={reg.pdconnection[0].title}>
+                  {reg.pdconnection[0].title}
+                </li>
+              ))
+            : null}
+        </ul>
       </PageWrapper>
     </>
   );
@@ -53,11 +67,32 @@ export default function Dashboard({ session }) {
 
 export async function getServerSideProps(ctx) {
   const session = await getSession(ctx);
-  console.log(`Session from SSR`, session);
   if (!session) {
     ctx.res.writeHead(302, { Location: "/" });
     ctx.res.end();
     return {};
   }
-  return { props: { session: session } };
+
+  // Now
+  let now = new Date();
+  // Get all of a user's registrations
+  const registrations = await fetcher(myRegistrationQuery, {
+    _myEmail: session.user.email,
+  });
+
+  let pastRegistrations = registrations.registrations.filter((reg) => {
+    return Date.parse(reg.pdconnection[0].date) < now;
+  });
+
+  let upcomingRegistrations = registrations.registrations.filter((reg) => {
+    return Date.parse(reg.pdconnection[0].date) > now;
+  });
+
+  return {
+    props: {
+      session: session,
+      pastRegistrations: pastRegistrations,
+      upcomingRegistrations: upcomingRegistrations,
+    },
+  };
 }
