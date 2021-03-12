@@ -1,4 +1,4 @@
-import { DashSession, SessionDeets, SessionItem } from "../layout/lib";
+import { DashSession, SessionDeets, SessionItem } from "../layout/Lib";
 import Moment from "react-moment";
 
 export default function DashCard({ session }) {

@@ -1,4 +1,4 @@
-import { DashSession, HoverImg } from "../layout/lib";
+import { DashSession, HoverImg } from "../layout/Lib";
 import Moment from "react-moment";
 
 export default function PastCard({ session }) {
