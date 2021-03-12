@@ -31,6 +31,7 @@ mutation RegistrationMutation($slug: String!, $attendee: String!) {
 export const myRegistrationQuery = `
 query MyRegQuery($_myEmail: String!) {
   registrations(where: {attendee: {_eq: $_myEmail}}) {
+    present
     pdconnection {
       title
       date

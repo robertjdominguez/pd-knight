@@ -106,8 +106,8 @@ export const HeroCTA = styled.a`
 export const SecBtn = styled.a`
   padding: 10px 20px !important;
   border-radius: 13px;
-  border: solid 1px var(--black);
-  color: var(--black);
+  border: solid 1px var(--black-3);
+  color: var(--black-3);
   text-decoration: none;
   font-size: 1.6em;
   transition: var(--norm);
@@ -115,7 +115,7 @@ export const SecBtn = styled.a`
 
   :hover {
     background: var(--eggshell);
-    border: solid 1px var(--black);
+    border: solid 1px var(--black-3);
   }
 `;
 
@@ -335,5 +335,27 @@ export const SessionItem = styled.li`
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+  }
+`;
+
+export const DashSession = styled.tr`
+  /* display: grid; */
+`;
+
+export const DashTable = styled.table`
+  th {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  td {
+    font-size: 1.2rem;
+  }
+`;
+
+export const HoverImg = styled.img`
+  transition: var(--norm);
+  :hover {
+    transform: rotateZ(-2.5deg) scale(1.3);
   }
 `;

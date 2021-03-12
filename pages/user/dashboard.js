@@ -1,5 +1,7 @@
 import { getSession } from "next-auth/client";
-import { PageWrapper } from "../../components/layout/Lib";
+import { PageWrapper, DashTable } from "../../components/layout/Lib";
+import DashCard from "../../components/sessions/DashCard";
+import PastCard from "../../components/sessions/PastCard";
 import {
   fetcher,
   myRegistrationQuery,
@@ -32,34 +34,43 @@ export default function Dashboard({
         </p>
         {/* Upcoming Sessions */}
         <h4 style={{ marginBottom: 0 }}>Upcoming Sessions</h4>
-        <p className="subtle">
+        <p className="subtle" style={{ marginBottom: `5vh` }}>
           Any upcoming sessions for which you're registered will appear here.
         </p>
-        <ul>
-          {upcomingRegistrations.length > 0
-            ? upcomingRegistrations.map((reg) => (
-                <li key={reg.pdconnection[0].title}>
-                  {reg.pdconnection[0].title}
-                </li>
-              ))
-            : null}
-        </ul>
+        <DashTable>
+          <thead>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Leader</th>
+          </thead>
+          <tbody>
+            {upcomingRegistrations.map((reg) => (
+              <DashCard
+                key={reg.pdconnection[0].title}
+                session={reg.pdconnection[0]}
+              />
+            ))}
+          </tbody>
+        </DashTable>
         {/* Past Sessions */}
-        <h4 style={{ marginBottom: 0 }}>Past Sessions</h4>
-        <p className="subtle">
+        <h4 style={{ marginBottom: 0, marginTop: `10vh` }}>Past Sessions</h4>
+        <p className="subtle" style={{ marginBottom: `5vh` }}>
           Once you register for sessions and they've already happened, they'll
           move down here. Certs and recordings will be available within a few
           days of the session.
         </p>
-        <ul>
-          {pastRegistrations.length > 0
-            ? pastRegistrations.map((reg) => (
-                <li key={reg.pdconnection[0].title}>
-                  {reg.pdconnection[0].title}
-                </li>
-              ))
-            : null}
-        </ul>
+        <DashTable>
+          <thead>
+            <th>Title</th>
+            <th>Recording</th>
+            <th>Certificate</th>
+          </thead>
+          <tbody>
+            {pastRegistrations.map((reg) => (
+              <PastCard key={reg.pdconnection[0].title} session={reg} />
+            ))}
+          </tbody>
+        </DashTable>
       </PageWrapper>
     </>
   );
