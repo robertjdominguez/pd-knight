@@ -264,9 +264,9 @@ export const SeshCard = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: var(--norm-shadow);
-  width: 400px;
+  width: 350px;
   /* min-height: 225px; */
-  min-height: 225px;
+  min-height: 197px;
   transition: var(--norm);
 
   :hover {

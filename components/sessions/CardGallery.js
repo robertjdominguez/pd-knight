@@ -2,13 +2,17 @@ import SessionCard from "./SessionCard";
 import { Gallery } from "../layout/Lib";
 
 export default function CardGallery({ sessions }) {
-  console.log(sessions);
-
   // Now
   let now = new Date();
 
   let upcoming = sessions.pdSessions.filter((session) => {
     return Date.parse(session.date) > now;
+  });
+
+  upcoming.sort(function (a, b) {
+    // Turn your strings into dates, and then subtract them
+    // to get a value that is either negative, positive, or zero.
+    return new Date(a.date) - new Date(b.date);
   });
 
   console.log(upcoming);
