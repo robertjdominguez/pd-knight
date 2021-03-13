@@ -10,17 +10,26 @@ import {
 } from "../../components/layout/Lib";
 
 const Session = ({ pdSession }) => {
+  console.log(pdSession);
+
+  // Check for past using now
+  let now = new Date();
+
   return (
     <>
       <SessionHero bg={pdSession.baseImage.url}>
         <div>
-          <img src={"/springworkshop.svg"} width="300px" height="auto" />
+          {pdSession.type == `techTh` ? (
+            <img src={"/techTh.svg"} width="200px" height="auto" />
+          ) : (
+            <img src={"/springworkshop.svg"} width="300px" height="auto" />
+          )}
           <h2>{pdSession.title}</h2>
           <p>{pdSession.description}</p>
           <SessionDeets>
             <ul>
               <SessionItem icon={"/calendar2.svg"} style={{ fontSize: `18px` }}>
-                <Moment format="DD MMMM HH:MM a" date={pdSession.date} />
+                <Moment format="DD MMMM hh:mm a" date={pdSession.date} />
               </SessionItem>
               <SessionItem icon={"/watch.svg"} style={{ fontSize: `14px` }}>
                 {pdSession.hours} hours
@@ -29,17 +38,32 @@ const Session = ({ pdSession }) => {
                 {pdSession.leader.name.split(" ")[0]}
               </SessionItem>
             </ul>
-            <Link href={`/confirmation/${pdSession.slug}`} passHref>
+            {Date.parse(pdSession.date) >= now ? (
+              <Link href={`/confirmation/${pdSession.slug}`} passHref>
+                <NavCTA
+                  style={{
+                    color: `var(--black)`,
+                    fontSize: `12px`,
+                    marginTop: `20px`,
+                    placeSelf: `start start`,
+                  }}>
+                  REGISTER
+                </NavCTA>
+              </Link>
+            ) : (
               <NavCTA
+                href={`${pdSession.videoLink}`}
+                target="_blank"
                 style={{
                   color: `var(--black)`,
                   fontSize: `12px`,
                   marginTop: `20px`,
                   placeSelf: `start start`,
-                }}>
-                REGISTER
+                }}
+                className={pdSession.videoLink == null ? `disabled` : null}>
+                WATCH RECORDING
               </NavCTA>
-            </Link>
+            )}
           </SessionDeets>
         </div>
       </SessionHero>
@@ -62,6 +86,8 @@ export async function getStaticProps({ params }) {
           slug
           date
           hours
+          type
+          videoLink
           leader {
             name
             email

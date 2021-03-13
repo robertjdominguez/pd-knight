@@ -153,6 +153,7 @@ export async function getStaticProps() {
           id
           title
           slug
+          date
           image {
             fileName
             url

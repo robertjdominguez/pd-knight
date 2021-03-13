@@ -57,7 +57,7 @@ const Confirmation = ({ pdSession }) => {
               <SessionItem
                 icon={"/calendar2.svg"}
                 style={{ fontSize: `18px`, color: `var(--black)` }}>
-                <Moment format="DD MMMM HH:MM a" date={pdSession.date} />
+                <Moment format="DD MMMM hh:mm a" date={pdSession.date} />
               </SessionItem>
               <SessionItem
                 icon={"/watch.svg"}

@@ -7,7 +7,6 @@ import {
   myRegistrationQuery,
   registrationMutation,
 } from "../../components/utilities/hasura";
-import Image from "next/image";
 import Head from "next/head";
 
 export default function Dashboard({
@@ -27,10 +26,8 @@ export default function Dashboard({
         <p className="subtle">
           This is your dashboard. It isn't sexy, but it's functional (kind of
           like Rob in high school). Below, you'll see all the sessions you've
-          signed up for. If they've already happened - and you actually showed
-          up - and JP/Rob have gotten it together and done their bureaucratic
-          work, then you'll see a handy button to print your certificate on your
-          next wild Saturday evening.
+          signed up for. If they've already happened, then you'll see a handy
+          button to print your certificate on your next wild Saturday evening.
         </p>
         {/* Upcoming Sessions */}
         <h4 style={{ marginBottom: 0 }}>Upcoming Sessions</h4>

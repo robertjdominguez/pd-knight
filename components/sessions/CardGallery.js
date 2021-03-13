@@ -2,6 +2,17 @@ import SessionCard from "./SessionCard";
 import { Gallery } from "../layout/Lib";
 
 export default function CardGallery({ sessions }) {
+  console.log(sessions);
+
+  // Now
+  let now = new Date();
+
+  let upcoming = sessions.pdSessions.filter((session) => {
+    return Date.parse(session.date) > now;
+  });
+
+  console.log(upcoming);
+
   return (
     <>
       <div>
@@ -13,8 +24,7 @@ export default function CardGallery({ sessions }) {
         </p>
       </div>
       <Gallery>
-        {sessions &&
-          sessions.pdSessions.map((pd) => <SessionCard key={pd.id} pd={pd} />)}
+        {upcoming && upcoming.map((pd) => <SessionCard key={pd.id} pd={pd} />)}
       </Gallery>
     </>
   );

@@ -1,8 +1,10 @@
 import CardGallery from "../../components/sessions/CardGallery";
+import PastGallery from "../../components/sessions/PastGallery";
 import graphcms from "../../components/utilities/graphCMS";
 import { PageWrapper, ContentHero, HeroCTA } from "../../components/layout/Lib";
 
 const index = ({ sessions }) => {
+  console.log(sessions);
   return (
     <>
       <ContentHero bg={"/sessionbg.png"}>
@@ -23,6 +25,7 @@ const index = ({ sessions }) => {
       <PageWrapper>
         {/* Gallery */}
         <CardGallery sessions={sessions} />
+        <PastGallery id="past" sessions={sessions} />
       </PageWrapper>
     </>
   );
@@ -36,6 +39,7 @@ export async function getStaticProps() {
         pdSessions {
           id
           title
+          date
           slug
           image {
             fileName

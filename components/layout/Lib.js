@@ -252,7 +252,7 @@ export const Gallery = styled.div`
   display: grid;
   grid-gap: 40px;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   place-items: center center;
   padding-top: 4rem;
   margin-bottom: 20vh;

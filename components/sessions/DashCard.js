@@ -6,7 +6,7 @@ export default function DashCard({ session }) {
     <DashSession>
       <td>{session.title}</td>
       <td>
-        <Moment format="dddd, MMMM Do HH:MM a" date={session.date} />
+        <Moment format="dddd, MMMM Do hh:mm a" date={session.date} />
       </td>
       <td>{session.leader.name.split(" ")[0]}</td>
     </DashSession>
