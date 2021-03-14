@@ -33,6 +33,7 @@ query MyRegQuery($_myEmail: String!) {
   registrations(where: {attendee: {_eq: $_myEmail}}) {
     present
     pdconnection {
+      id
       title
       date
       leader {
@@ -42,6 +43,17 @@ query MyRegQuery($_myEmail: String!) {
       description
       videoLink
     }
+  }
+}
+`;
+
+export const getPdSession = `
+query PDSessionQuery($id: ID!) {
+  pdSession(where: {id: $id}) {
+    title
+    description
+    date
+    hours
   }
 }
 `;

@@ -92,8 +92,16 @@ export async function getServerSideProps(ctx) {
     return Date.parse(reg.pdconnection[0].date) < now;
   });
 
+  pastRegistrations.sort(function (a, b) {
+    return new Date(a.pdconnection[0].date) - new Date(b.pdconnection[0].date);
+  });
+
   let upcomingRegistrations = registrations.registrations.filter((reg) => {
     return Date.parse(reg.pdconnection[0].date) > now;
+  });
+
+  upcomingRegistrations.sort(function (a, b) {
+    return new Date(a.pdconnection[0].date) - new Date(b.pdconnection[0].date);
   });
 
   return {

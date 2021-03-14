@@ -1,5 +1,5 @@
 import { DashSession, HoverImg } from "../layout/Lib";
-import Moment from "react-moment";
+import Link from "next/link";
 
 export default function PastCard({ session }) {
   console.log(session);
@@ -21,11 +21,15 @@ export default function PastCard({ session }) {
       </td>
       <td>
         {session.present == true ? (
-          <HoverImg
-            style={{ cursor: `pointer` }}
-            src="/badge.svg"
-            alt="Play icon"
-          />
+          <Link
+            href={`/certificate/${session.pdconnection[0].id}`}
+            target="_blank">
+            <HoverImg
+              style={{ cursor: `pointer` }}
+              src="/badge.svg"
+              alt="Play icon"
+            />
+          </Link>
         ) : (
           <img
             style={{ filter: `grayscale(100%)` }}

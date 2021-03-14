@@ -359,3 +359,13 @@ export const HoverImg = styled.img`
     transform: rotateZ(-2.5deg) scale(1.3);
   }
 `;
+
+export const Cert = styled.div`
+  display: grid;
+  min-height: 80vh;
+  padding: 20px 40px;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  color: var(--black);
+  place-items: center center;
+`;
