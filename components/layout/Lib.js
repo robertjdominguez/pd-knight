@@ -380,3 +380,25 @@ export const Cert = styled.div`
     }
   }
 `;
+
+export const Signatures = styled.div`
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 40px;
+
+  p {
+    border-top: solid 1px black;
+    font-size: 1rem;
+  }
+
+  img {
+    width: 60%;
+    height: auto;
+  }
+
+  div {
+    display: grid;
+    align-content: end;
+  }
+`;

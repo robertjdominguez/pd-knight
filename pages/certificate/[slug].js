@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { getSession } from "next-auth/client";
 import { getPdSession, fetcher } from "../../components/utilities/hasura";
-import { Cert, SwellImg } from "../../components/layout/Lib";
+import { Cert, SwellImg, Signatures } from "../../components/layout/Lib";
 
 export default function Certificate({ session, details }) {
   const componentRef = useRef();
@@ -27,7 +27,7 @@ export default function Certificate({ session, details }) {
       </div>
       <Cert ref={componentRef}>
         <img
-          src="/alt_logo_white.png"
+          src="/TAS_Knight_Circle.svg"
           width="300px"
           height="auto"
           alt="The Altamont School Logo"
@@ -38,6 +38,19 @@ export default function Certificate({ session, details }) {
             {details.title} <span>({details.hours} hours)</span>
           </h4>
           <p>{details.description}</p>
+          <Signatures>
+            <div>
+              <img src="/JP.svg" alt="Signature" />
+              <p>JP Hemingway, Associate Head of School</p>
+            </div>
+            <div>
+              <img
+                src="https://student-centric.s3.amazonaws.com/image+1.png"
+                alt="Signature"
+              />
+              <p>Rob Dominguez, Director of Education Technology</p>
+            </div>
+          </Signatures>
         </div>
       </Cert>
     </>
