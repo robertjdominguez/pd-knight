@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { getSession } from "next-auth/client";
 import { getPdSession, fetcher } from "../../components/utilities/hasura";
-import { Cert } from "../../components/layout/Lib";
+import { Cert, SwellImg } from "../../components/layout/Lib";
 
 export default function Certificate({ session, details }) {
   const componentRef = useRef();
@@ -12,15 +12,34 @@ export default function Certificate({ session, details }) {
 
   return (
     <>
+      <div
+        style={{
+          display: `grid`,
+          placeItems: `center center`,
+          marginTop: `40px`,
+        }}>
+        <SwellImg
+          onClick={handlePrint}
+          style={{ cursor: `pointer`, width: `40px`, height: `auto` }}
+          src="/printer.svg"
+          alt="Printer icon"
+        />
+      </div>
       <Cert ref={componentRef}>
-        <div>IMAGE WILL GO HERE</div>
+        <img
+          src="/alt_logo_white.png"
+          width="300px"
+          height="auto"
+          alt="The Altamont School Logo"
+        />
         <div>
-          <p>{session.user.name}</p>
-          <p>{details.title}</p>
+          <h2>{session.user.name}</h2>
+          <h4 style={{ marginTop: `0` }}>
+            {details.title} <span>({details.hours} hours)</span>
+          </h4>
           <p>{details.description}</p>
         </div>
       </Cert>
-      <button onClick={handlePrint}>Print this out!</button>
     </>
   );
 }
@@ -39,14 +58,13 @@ export async function getServerSideProps(ctx) {
     id: ctx.query.slug,
   });
 
-  console.log(pdSession);
-
   return {
     props: {
       session,
       details: {
         title: pdSession.pdSession.title,
         description: pdSession.pdSession.description,
+        hours: pdSession.pdSession.hours,
       },
     }, // will be passed to the page component as props
   };

@@ -360,6 +360,11 @@ export const HoverImg = styled.img`
   }
 `;
 
+export const SwellImg = styled.img`
+  animation: swelling 4s infinite;
+  -webkit-animation: swelling 1s infinite;
+`;
+
 export const Cert = styled.div`
   display: grid;
   min-height: 80vh;
@@ -368,4 +373,10 @@ export const Cert = styled.div`
   background: white;
   color: var(--black);
   place-items: center center;
+
+  @media print {
+    @page {
+      size: landscape;
+    }
+  }
 `;

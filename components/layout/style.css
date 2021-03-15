@@ -15,7 +15,8 @@
     /* Transitions */
     --slow: ease-in-out 0.3s;
     --norm: ease-in-out 0.2s;
-}
+  }
+
 
 html {
     box-sizing: border-box;
@@ -84,4 +85,17 @@ a.disabled {
   cursor: default;
   background: var(--grey) !important;
   border: solid 1px var(--grey) !important;
+}
+
+  /* Animations */
+  @keyframes swelling {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
 }
