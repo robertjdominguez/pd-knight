@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { getSession } from "next-auth/client";
+import Moment from "react-moment";
 import { getPdSession, fetcher } from "../../components/utilities/hasura";
 import { Cert, SwellImg, Signatures } from "../../components/layout/Lib";
 
@@ -37,6 +38,9 @@ export default function Certificate({ session, details }) {
           <h4 style={{ marginTop: `0` }}>
             {details.title} <span>({details.hours} hours)</span>
           </h4>
+          <p className="subtle">
+            <Moment format="dddd Do MMMM hh:mm a" date={details.date} />
+          </p>
           <p>{details.description}</p>
           <Signatures>
             <div>
@@ -78,6 +82,7 @@ export async function getServerSideProps(ctx) {
         title: pdSession.pdSession.title,
         description: pdSession.pdSession.description,
         hours: pdSession.pdSession.hours,
+        date: pdSession.pdSession.date,
       },
     }, // will be passed to the page component as props
   };
