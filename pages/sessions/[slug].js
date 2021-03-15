@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Moment from "react-moment";
 import graphcms from "../../components/utilities/graphCMS";
@@ -17,6 +18,31 @@ const Session = ({ pdSession }) => {
 
   return (
     <>
+      <Head>
+        <title>PD Knight - {pdSession.title}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content={pdSession.description}
+          data-react-helmet="true"
+        />
+        <meta
+          name="twitter:site"
+          content="@_RobDominguez"
+          data-react-helmet="true"
+        />
+        <meta
+          name="twitter:title"
+          content={pdSession.title}
+          data-react-helmet="true"
+        />
+        <meta
+          name="twitter:image"
+          content={pdSession.image.url}
+          data-react-helmet="true"
+        />
+      </Head>
       <SessionHero bg={pdSession.baseImage.url}>
         <div>
           {pdSession.type == `techTh` ? (

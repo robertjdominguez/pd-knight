@@ -25,17 +25,35 @@ export default function Layout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600;900&display=swap"
           rel="stylesheet"
         />
-        <script
-          src="https://kit.fontawesome.com/8b2181122f.js"
-          crossOrigin="anonymous"></script>
         <meta charset="UTF-8" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
         <meta
           name="description"
-          content="Summer at Altamont is the best choice in Birmingham for summer enrichment. We offer remote classes and have everything from athletic camps to high school credit courses."
+          content="PD Knight is an internal professional development service of The Altamont School in Birmingham Alabama. An externally facing blog and newsletter is to anyone who wants to learn from us!"
         />
         <meta
           name="keywords"
-          content="Summer, Camp, Altamont, Summer School, Remote Learning, Hybrid Learning, Day Camp, School, Birmingham, Birmingham summer camp"
+          content="Altamont, School, Remote Learning, Hybrid Learning, Birmingham, Birmingham, Alabama, Teacher Development, Professional Development"
         />
       </Head>
       <Nav />

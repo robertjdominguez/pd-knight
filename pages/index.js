@@ -19,7 +19,7 @@ export default function Home({ sessions }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>PD Knight - The Altamont School Professional Development</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { getSession } from "next-auth/client";
@@ -13,6 +14,10 @@ export default function Certificate({ session, details }) {
 
   return (
     <>
+      <Head>
+        <title>PD Knight - Certificate</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         style={{
           display: `grid`,

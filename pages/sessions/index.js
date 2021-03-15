@@ -1,3 +1,4 @@
+import Head from "next/head";
 import CardGallery from "../../components/sessions/CardGallery";
 import PastGallery from "../../components/sessions/PastGallery";
 import graphcms from "../../components/utilities/graphCMS";
@@ -7,6 +8,10 @@ const index = ({ sessions }) => {
   console.log(sessions);
   return (
     <>
+      <Head>
+        <title>PD Knight - Sessions</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <ContentHero bg={"/sessionbg.png"}>
         <div />
         <div>

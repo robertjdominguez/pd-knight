@@ -1,8 +1,13 @@
+import Head from "next/head";
 import { PageWrapper, ContentHero, HeroCTA } from "../../components/layout/Lib";
 
 const index = () => {
   return (
     <>
+      <Head>
+        <title>PD Knight - Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <ContentHero bg={"/blogbg.png"}>
         <div />
         <div>
