@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Moment from "react-moment";
+import SessionCard from "../../components/sessions/SessionCard";
 import graphcms from "../../components/utilities/graphCMS";
 import {
   PageWrapper,
@@ -8,11 +9,10 @@ import {
   SessionDeets,
   SessionItem,
   NavCTA,
+  Gallery,
 } from "../../components/layout/Lib";
 
-const Session = ({ pdSession }) => {
-  console.log(pdSession);
-
+const Session = ({ pdSession, pdSessions }) => {
   // Check for past using now
   let now = new Date();
 
@@ -94,7 +94,15 @@ const Session = ({ pdSession }) => {
         </div>
       </SessionHero>
       <PageWrapper>
-        <h2>Similar sessions...</h2>
+        <h2 style={{ marginBottom: `0` }}>Similar sessions</h2>
+        <p className="subtle">
+          Here are some sessions similar to <strong>{pdSession.title}</strong>{" "}
+          that may interest you:
+        </p>
+        <Gallery>
+          {pdSessions &&
+            pdSessions.map((pd) => <SessionCard key={pd.id} pd={pd} />)}
+        </Gallery>
       </PageWrapper>
     </>
   );
@@ -133,9 +141,39 @@ export async function getStaticProps({ params }) {
     }
   );
 
+  const { pdSessions } = await graphcms.request(
+    `
+    query MyQuery($type: SessionType!) {
+      pdSessions(where: {type: $type}) {
+        title
+        description
+        slug
+        date
+        hours
+        type
+        videoLink
+        leader {
+          name
+          email
+        }
+        image {
+          url
+        }
+        baseImage {
+          url
+        }
+      }
+    }      
+      `,
+    {
+      type: pdSession.type,
+    }
+  );
+
   return {
     props: {
       pdSession,
+      pdSessions,
     },
   };
 }
