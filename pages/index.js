@@ -36,7 +36,9 @@ export default function Home({ sessions }) {
                 One-Stop-Shop for <span>Professional Development</span>
               </h1>
               <div>
-                <HeroCTA href="/">Get Started!</HeroCTA>
+                <Link href="#upcoming" passHref>
+                  <HeroCTA>Get Started!</HeroCTA>
+                </Link>
                 <SecBtn style={{ marginLeft: `20px` }} href="/">
                   I need help...
                 </SecBtn>
@@ -139,7 +141,9 @@ export default function Home({ sessions }) {
             </div>
           </Paired>
           {/* Gallery */}
-          <CardGallery sessions={sessions} />
+          <div id="upcoming">
+            <CardGallery sessions={sessions} />
+          </div>
         </PageWrapper>
       </main>
     </div>

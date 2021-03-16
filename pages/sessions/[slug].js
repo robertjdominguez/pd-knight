@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Moment from "react-moment";
+import { useSession, signIn } from "next-auth/client";
 import SessionCard from "../../components/sessions/SessionCard";
 import graphcms from "../../components/utilities/graphCMS";
 import {
@@ -13,6 +14,7 @@ import {
 } from "../../components/layout/Lib";
 
 const Session = ({ pdSession, pdSessions }) => {
+  const [session, loading] = useSession();
   // Check for past using now
   let now = new Date();
 
@@ -65,17 +67,30 @@ const Session = ({ pdSession, pdSessions }) => {
               </SessionItem>
             </ul>
             {Date.parse(pdSession.date) >= now ? (
-              <Link href={`/confirmation/${pdSession.slug}`} passHref>
+              session ? (
+                <Link href={`/confirmation/${pdSession.slug}`} passHref>
+                  <NavCTA
+                    style={{
+                      color: `var(--black)`,
+                      fontSize: `12px`,
+                      marginTop: `20px`,
+                      placeSelf: `start start`,
+                    }}>
+                    REGISTER
+                  </NavCTA>
+                </Link>
+              ) : (
                 <NavCTA
                   style={{
                     color: `var(--black)`,
                     fontSize: `12px`,
                     marginTop: `20px`,
                     placeSelf: `start start`,
-                  }}>
+                  }}
+                  onClick={signIn}>
                   REGISTER
                 </NavCTA>
-              </Link>
+              )
             ) : (
               <NavCTA
                 href={`${pdSession.videoLink}`}
