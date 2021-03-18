@@ -4,18 +4,18 @@ import Nav from "./Nav";
 // import Footer from "./Footer";
 // import { Elements } from "@stripe/react-stripe-js";
 // import { loadStripe } from "@stripe/stripe-js";
-// import { initGA, logPageView } from "../../utils/analytics";
+import { initGA, logPageView } from "../../utils/analytics";
 
 // TODO: When the time comes, add stripe promise here
 
 export default function Layout({ children }) {
-  //   useEffect(() => {
-  //     if (!window.GA_INITIALIZED) {
-  //       initGA();
-  //       window.GA_INITIALIZED = true;
-  //     }
-  //     logPageView();
-  //   }, []);
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  }, []);
 
   return (
     <div>
