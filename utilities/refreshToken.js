@@ -12,7 +12,7 @@ export async function refreshToken() {
     data: qs.stringify({
       client_id: process.env.APPLICATION_ID,
       scope:
-        "https://graph.microsoft.com/user.read https://graph.microsoft.com/calendars.readwrite https://graph.microsoft.com/mail.send https://graph.microsoft.com/mail.readwrite offline_access",
+        "https://graph.microsoft.com/user.read https://graph.microsoft.com/calendars.readwrite https://graph.microsoft.com/mail.send offline_access",
       refresh_token: storedToken,
       redirect_uri: process.env.REDIRECT_URI,
       grant_type: "refresh_token",
