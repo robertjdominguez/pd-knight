@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 // Utility classes...sort of
@@ -17,7 +18,7 @@ export const DynamicWrapper = styled.div`
 `;
 
 // LANDING
-export const Hero = styled.div`
+export const Hero = styled(motion.div)`
   display: grid;
   grid-gap: 40px;
   min-height: 70vh;
@@ -226,6 +227,9 @@ export const ContentHero = styled.div`
       rgba(255, 255, 255, 0) 100.56%
     ),
     url("${(props) => props.bg}");
+  background-position: center left;
+  background-size: contain;
+  background-repeat: no-repeat;
   place-items: center center;
   color: var(--secondary);
   padding: 4rem 4rem;

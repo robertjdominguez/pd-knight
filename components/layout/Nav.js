@@ -15,9 +15,10 @@ export default function Nav() {
         style={{ gridArea: `logo` }}
       />
       <NavItems>
+        <div />
         <Link href="/">Home</Link>
         <Link href="/sessions">Sessions</Link>
-        <Link href="/blog">Blog</Link>
+        {/* <Link href="/blog">Blog</Link> */}
         <></>
         {session && <Link href="/user/dashboard">My Dashboard</Link>}
         {!session ? (

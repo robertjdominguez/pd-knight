@@ -26,7 +26,11 @@ export default function Home({ sessions }) {
       <main>
         <PageWrapper>
           {/* Hero */}
-          <Hero min={`400px`}>
+          <Hero
+            min={`400px`}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}>
             <div
               style={{
                 marginLeft: `auto`,

@@ -12,7 +12,7 @@ const index = ({ sessions }) => {
         <title>PD Knight - Sessions</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ContentHero bg={"/sessionbg.png"}>
+      <ContentHero bg={"/nt.webp"}>
         <div />
         <div>
           <h1>
@@ -24,12 +24,14 @@ const index = ({ sessions }) => {
             preparing our students for the 21st-Century; our job is to help you
             prepare them.
           </p>
-          <HeroCTA href="/">Browse Sessions</HeroCTA>
+          <HeroCTA href="/sessions#sessions">Browse Sessions</HeroCTA>
         </div>
       </ContentHero>
       <PageWrapper>
         {/* Gallery */}
+        <div id="sessions" />
         <CardGallery sessions={sessions} />
+        <div id="past" />
         <PastGallery id="past" sessions={sessions} />
       </PageWrapper>
     </>

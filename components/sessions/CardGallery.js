@@ -1,5 +1,6 @@
 import SessionCard from "./SessionCard";
 import { Gallery } from "../layout/Lib";
+import Link from "next/link";
 
 export default function CardGallery({ sessions }) {
   // Now
@@ -24,7 +25,7 @@ export default function CardGallery({ sessions }) {
         <p className={"subtle"}>
           Below you'll find all our upcoming sessions. These events haven't
           happened yet; for a complete catalogue of all our workshops, including
-          ones in the past, click here.
+          ones in the past, <Link href="/sessions#past">click here</Link>.
         </p>
       </div>
       <Gallery>
