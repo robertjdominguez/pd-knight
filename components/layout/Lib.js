@@ -8,6 +8,8 @@ export const PageWrapper = styled.div`
   margin-right: auto;
   max-width: 1200px;
   padding: 10px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 `;
 
 export const DynamicWrapper = styled.div`

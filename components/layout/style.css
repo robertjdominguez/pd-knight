@@ -26,8 +26,8 @@ html {
     font-size: 62.5%;
     color: var(--black);
     overflow-x: hidden;
-    scroll-behavior: smooth;
     scroll-padding: 70px;
+    scroll-behavior: smooth;
   }
   
   body {
